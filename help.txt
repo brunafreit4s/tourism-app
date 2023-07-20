@@ -1,0 +1,26 @@
+1- Criar ambiente virtual:
+python -m venv venv
+
+2- Liberar a execução do ambiente:
+set-ExecutionPolicy AllSigned -Force
+
+3- Executar o ambiente:
+env/Scripts/Activate
+
+4- Voltar a Poilicy:
+set-ExecutionPolicy Restricted -Force
+
+5- Instalar o Django:
+pip install django
+
+6- Criar um projeto Django:
+django-admin startproject [nome do projeto]
+
+7- Verifica se há migrations:
+python manage.py makemigrations
+
+8- Executa as migrations:
+python manage.py migrate
+
+9- Executa o server:
+python manage.py runserver
