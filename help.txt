@@ -24,3 +24,7 @@ python manage.py migrate
 
 9- Executa o server:
 python manage.py runserver
+
+10- Instalar Django-RestFramework
+pip install djangorestframework
+
