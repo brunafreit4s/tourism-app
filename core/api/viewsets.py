@@ -19,23 +19,23 @@ class PontoTuristicoViewSet(ModelViewSet):
     def get_queryset(self):
         return PontoTuristico.objects.filter(aprovado=True)
     
-    def list(self, request, *args, **kwargs):
-        return Response({'teste', 123456})
+    def list(self, request):
+        return super(PontoTuristicoViewSet, self).list(request)
     
     def create(self, request, *args, **kwargs):
-        return super().create(request, *args, **kwargs)
+        return super(PontoTuristicoViewSet, self).create(request, *args, **kwargs)
     
     def destroy(self, request, *args, **kwargs):
-        return super().destroy(request, *args, **kwargs)
+        return super(PontoTuristicoViewSet, self).destroy(request, *args, **kwargs)
     
     def retrieve(self, request, *args, **kwargs):
-        return super().retrieve(request, *args, **kwargs)
+        return super(PontoTuristicoViewSet, self).retrieve(request, *args, **kwargs)
     
     def update(self, request, *args, **kwargs):
-        return super().update(request, *args, **kwargs)
+        return super(PontoTuristicoViewSet, self).update(request, *args, **kwargs)
     
     def partial_update(self, request, *args, **kwargs):
-        return super().partial_update(request, *args, **kwargs)
+        return super(PontoTuristicoViewSet, self).partial_update(request, *args, **kwargs)
     
     # Cria um novo método utilizando action
     @action(methods=['get'], detail=True)

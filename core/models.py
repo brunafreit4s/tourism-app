@@ -12,6 +12,7 @@ class PontoTuristico(models.Model):
     comentarios = models.ManyToManyField(Comentarios)
     avaliacoes = models.ManyToManyField(Avaliacao)
     localizacao = models.ForeignKey(Localizacao, on_delete=models.CASCADE, null=True, blank=True)
+    foto = models.ImageField(upload_to='app_tourism', null=True, blank=True)
 
     def __str__(self) -> str:
         return self.nome
