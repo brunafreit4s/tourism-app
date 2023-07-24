@@ -17,7 +17,23 @@ class PontoTuristicoViewSet(ModelViewSet):
         mas é possível sobrescrever conforme abaixo:
     """
     def get_queryset(self):
-        return PontoTuristico.objects.filter(aprovado=True)
+        id = self.request.query_params.get('id', None)
+        nome = self.request.query_params.get('nome', None)
+        descricao = self.request.query_params.get('descricao', None)
+        queryset = PontoTuristico.objects.all()
+
+        if id:
+            queryset = PontoTuristico.objects.filter(pk=id)
+
+        # __iexact = Case insensitive - Ignora diferenciação de maiúsculas ou minúsculas
+        if nome:
+            queryset = queryset.filter(nome__iexact=nome)
+
+        if descricao:
+            queryset = queryset.filter(descricao__iexact=descricao)
+
+        return queryset
+        #return PontoTuristico.objects.filter(aprovado=True)
     
     def list(self, request):
         return super(PontoTuristicoViewSet, self).list(request)
