@@ -1,5 +1,5 @@
 from rest_framework.serializers import ModelSerializer
-from atracoes.api.viewsets import Atracao
+from atracoes.models import Atracao
 
 class AtracaoSerializer(ModelSerializer):
     class Meta:

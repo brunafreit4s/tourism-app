@@ -6,3 +6,6 @@
 <hr>
 <b>Biblioteca de manibulação de imagens</b>
 <pre>pip install pillow</pre>
+
+<b>Rest Framework - Filters</b>
+<pre>pip install django-filter</pre>

@@ -1,5 +1,5 @@
 from rest_framework.serializers import ModelSerializer
-from localizacao.api.viewsets import Localizacao
+from localizacao.models import Localizacao
 
 class LocalizacaoSerializer(ModelSerializer):
     class Meta:

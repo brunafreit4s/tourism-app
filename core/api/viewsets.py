@@ -1,5 +1,6 @@
 from rest_framework.viewsets import ModelViewSet
-from rest_framework.response import Response
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import action
 from core.models import PontoTuristico
 from .serializers import PontoTuristicoSerializer
@@ -11,6 +12,16 @@ class PontoTuristicoViewSet(ModelViewSet):
     # queryset = PontoTuristico.objects.filter(aprovado=True)
     serializer_class = PontoTuristicoSerializer
 
+    # Autenticação
+    #authentication_classes = (TokenAuthentication,)
+    #permission_classes = (IsAuthenticated,)
+    
+    """ 
+        permission_classes:
+            Permite apenas a leitura (GET) da api,
+            Não permitindo os demais verbos
+    """
+    # permission_classes = (IsAuthenticatedOrReadOnly,)
 
     """ 
         Na ModelViewSet já existem métodos padrões,
@@ -56,4 +67,4 @@ class PontoTuristicoViewSet(ModelViewSet):
     # Cria um novo método utilizando action
     @action(methods=['get'], detail=True)
     def denunciar(self, request, pk=None):
-        pass
+        return super(PontoTuristicoViewSet, self).list(request)
